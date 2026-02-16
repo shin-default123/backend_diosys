@@ -89,11 +89,16 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/registers/{type}/{id}', [ParishRecordController::class, 'update']);
     Route::delete('/registers/{type}/{id}', [ParishRecordController::class, 'destroy']);
 
+    Route::get('/employees/history', [EmployeeController::class, 'history']);
+
+
     // Employee Management
     Route::get('/employees', [EmployeeController::class, 'index']);
     Route::post('/employees', [EmployeeController::class, 'store']);
     Route::put('/employees/{id}', [EmployeeController::class, 'update']);
     Route::delete('/employees/{id}', [EmployeeController::class, 'destroy']);
+    Route::post('/employees/{id}/restore', [EmployeeController::class, 'restore']);
+
 
     // Settings & Email Templates
     Route::post('/settings', [SettingController::class, 'update']);
